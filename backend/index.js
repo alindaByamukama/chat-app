@@ -13,14 +13,14 @@ app.post("/authenticate", async (req, res) => {
     const { username } = req.body;
     // get or create user on chat engine
     try {
-        const res = await axios.put(
+        const r = await axios.put(
             'https://api.chatengine.io/users',
             { username: username, secret: username, first_name: username },
-            {headers: {"private-key": PRIVATE_KEY}}
-        )
-        return res.status(res.status).json(res.data)
-    } catch (error) {
-        return res.status(error.response.status).json(error.response.data)
+            { headers: { "private-key": PRIVATE_KEY } }
+        );
+        return res.status(r.status).json(r.data)
+    } catch (err) {
+        return res.status(err.response.status).json(err.response.data);
     }
 });
 
