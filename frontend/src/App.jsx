@@ -15,6 +15,6 @@ function App() {
   } else {
     return <ChatsPage user={user} />;
   }
-};
+}
 
 export default App;
